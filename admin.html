@@ -1,0 +1,49 @@
+<main>
+    <section>
+        <h2>الأخبار المعلقة</h2>
+        <div id="pendingNews">
+            <!-- سيتم تحميل الأخبار ديناميكيًا -->
+        </div>
+    </section>
+</main>
+
+<script>
+    async function loadPendingNews() {
+        const response = await fetch('https://your-backend-api.com/news?status=pending');
+        const news = await response.json();
+        const newsContainer = document.getElementById('pendingNews');
+
+        news.forEach(item => {
+            const newsItem = document.createElement('div');
+            newsItem.innerHTML = `
+                <h3>${item.title}</h3>
+                <p>بواسطة: ${item.author}</p>
+                <button onclick="approveNews('${item.id}')">قبول</button>
+                <button onclick="rejectNews('${item.id}')">رفض</button>
+            `;
+            newsContainer.appendChild(newsItem);
+        });
+    }
+
+    async function approveNews(id) {
+        await fetch(`https://your-backend-api.com/news/${id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ status: 'approved' })
+        });
+        alert('تم قبول الخبر.');
+        location.reload();
+    }
+
+    async function rejectNews(id) {
+        await fetch(`https://your-backend-api.com/news/${id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ status: 'rejected' })
+        });
+        alert('تم رفض الخبر.');
+        location.reload();
+    }
+
+    loadPendingNews();
+</script>

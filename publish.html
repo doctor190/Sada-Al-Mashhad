@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نشر خبر - صدى المشهد</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#newsContent',
+            plugins: 'image media link code',
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image media',
+            height: 300
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>نشر خبر</h1>
+        <button id="logoutButton">تسجيل الخروج</button>
+    </header>
+
+    <main>
+        <form id="publishForm">
+            <input type="text" id="newsTitle" placeholder="عنوان الخبر" required>
+            <textarea id="newsContent" placeholder="محتوى الخبر"></textarea>
+            <input type="file" id="newsMedia" accept="image/*,video/*">
+            <button type="submit">نشر</button>
+        </form>
+    </main>
+
+    <script src="publish.js"></script>
+</body>
+</html>

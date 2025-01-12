@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صدى المشهد</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="لوجو الموقع" class="logo">
+            <h1 class="site-name">صدى المشهد</h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#">الأخبار</a></li>
+                <li><a href="#">الاقتصاد</a></li>
+                <li><a href="#">التعليم</a></li>
+                <!-- أضف باقي الأقسام هنا -->
+            </ul>
+        </nav>
+        <div class="search-container">
+            <input type="text" placeholder="بحث...">
+            <button>بحث</button>
+        </div>
+    </header>
+
+    <!-- شريط الأخبار العاجلة -->
+    <div class="breaking-news">
+        <img src="logo.png" alt="لوجو الموقع" class="breaking-logo">
+        <div class="news-ticker">
+            <p>هذا نص خبر عاجل يتحرك من اليمين إلى اليسار.</p>
+        </div>
+        <img src="logo.png" alt="لوجو الموقع" class="breaking-logo">
+    </div>
+
+    <!-- أهم الأخبار -->
+    <main>
+        <section class="featured-news">
+            <h2>أهم الأخبار</h2>
+            <div id="approvedNews"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
